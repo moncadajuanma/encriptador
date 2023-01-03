@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="reset.css" /> -->
+    <link rel="stylesheet" href="encriptador.css" />
+    <title>Encriptador</title>
+  </head>
+
+  <body>
+    <main>
+      <section class="entrada-texto">
+        <header>
+          <img src= "encriptador/Logo.png" alt="logo alura">
+        </header>
+        
+        <textarea class="" id="texto-area" rows="30" placeholder="Ingresa el texto aqui" type="text"></textarea>
+        
+      <div class="end-section">  
+        <p class="warning">&#9888 Solo letras minúsculas y sin acentos</p>
+        
+        <div class="buttons">
+          <button id="b-encriptar" class="b-encriptar" onclick="encriptar()">Encriptar</button>
+          <button id="b-desencriptar" class="b-desencriptar" onclick="desencriptar()">Desencriptar</button>
+        </div>
+      </div>
+      </section>
+
+      <section class="salida-texto">
+        <textarea id="texto-encriptado" cols="30" rows="10"></textarea>
+        <img src="encriptador/Muñeco.png" alt="Muneco" id="imagen">
+        <h1 id="no-encontrado">Ningún mensaje fue encontrado</h1>
+        <p id="ingrese-texto">Ingresa el texto que desees encriptar o desencriptar.</p>
+        <button id="boton-copiar" type="button" onclick="copiarTexto()">copiar</button>
+      </section>
+    </main>
+      <footer>
+        <p class="copyright">&copy Juan Manuel Moncada Orjuela - 2023</p>
+      </footer>
+
+    <script src="encriptador.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,169 @@
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f5fc;
+  height: auto;
+  align-items: center;
+  margin: 0 50px;
+}
+
+main {
+display: flex;
+width: 100%;
+}
+
+.entrada-texto {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 92vh;
+  border: none;
+}
+
+.entrada-texto textarea {
+  margin: 20px auto;
+  resize: none;
+  width: 80%;
+  height: 68vh;
+  border: transparent;
+  background-color: transparent;
+  font-size: 32px;
+  color: #0A3871;
+  
+}
+
+.entrada-texto textarea::placeholder {
+  font-size: 32px;
+  color: #0a3871;
+}
+.entrada-texto textarea:focus {
+  outline: none;
+}
+
+header {
+  display: flex;
+}
+
+header img {
+  width: 100px;
+  margin-top: 30px;
+}
+
+.end-section {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+}
+
+.warning {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  margin: 10px 50px;
+  color: red;
+  text-align: center;
+  align-items: center;
+}
+
+.buttons {
+display: flex;
+flex-direction: row;
+gap: 24px;
+}
+
+#b-encriptar, #b-desencriptar {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #0A3871;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttons :hover {
+transform: scale(1.05);
+}
+
+.salida-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  width: 20%;
+  height: 90vh;
+  margin-right: 30px;
+  margin-top: 35px;
+  border-radius: 32px;
+  gap: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.349);
+}
+
+#texto-encriptado {
+  margin: 10px;
+  visibility: hidden;
+  border: transparent;
+  font-size: 24px;
+  color: #0a3871;
+  text-align: center;
+}
+
+#texto-encriptado:focus {
+outline: none;
+
+}
+
+.salida-texto img {
+  margin: 20px;
+}
+
+.salida-texto h1 {
+margin: 15px;
+font-size: 22px;
+}
+
+.salida-texto p {
+  margin: 15px;
+  font-size: 16px;
+}
+
+.salida-texto button {
+  margin: 20px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: solid 1px;
+  cursor: pointer;
+  visibility: hidden;
+  text-align: center;
+}
+
+footer {
+  bottom: 0;
+  text-align: center;
+}
+
+@media (max-width: 1200px){
+  .salida-texto{
+    width: 30%;
+  }
+}
+@media (max-width:921px){
+  .buttons button{
+    width: 225px;
+  }
+}
+@media (max-width: 768px){
+  .buttons button{
+    width: 188px;
+  }
+}
