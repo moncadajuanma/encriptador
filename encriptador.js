@@ -1,8 +1,9 @@
-const regex = new RegExp(/^[a-z]+$/);
+// Expresion regular que valida solo letras minusculas y el caracter espacio
+const regex = new RegExp(/^[a-z\s]+$/);
 
 //Sirve para encriptar el texto ingresado
 function encriptar() {
-  var textoIngresado = document.getElementById("texto-area").value;
+  var textoIngresado = document.getElementById("textarea-entrada").value;
   if (textoIngresado != "") {
     if (regex.test(textoIngresado)) {
       //Importante: No cambiar el orden de los replacesAll
@@ -12,23 +13,35 @@ function encriptar() {
         .replaceAll("a", "ai")
         .replaceAll("o", "ober")
         .replaceAll("u", "ufat");
-      document.getElementById("imagen").style.display = "none";
-      document.getElementById("no-encontrado").style.visibility = "hidden";
-      document.getElementById("ingrese-texto").style.visibility = "hidden";
-      document.getElementById("texto-encriptado").innerHTML = textoEncriptado;
-      document.getElementById("texto-encriptado").style.visibility = "visible";
-      document.getElementById("boton-copiar").style.visibility = "visible";
+      document.getElementById("imagen-texto").style.display = "none";
+      document.getElementById("textarea-encriptado").textContent = textoEncriptado;
+      document.getElementById("textarea-boton").style.display = "flex";
+      document.getElementById("textarea-entrada").value = "";
     } else {
-      alert("Ingrese solo letras minúsculas sin acentuacion");
+      // Notificacion sweetAlert2
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Ingrese solo letras minúsculas sin acentuacion',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   } else {
-    alert("Ingresa una frase");
+    // Notificacion sweetAlert2
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Ingresa una frase',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
 //Funcion para desencriptar el texto
 function desencriptar() {
-  var textoIngresado = document.getElementById("texto-area").value;
+  var textoIngresado = document.getElementById("textarea-entrada").value;
   if (textoIngresado != "") {
     if (regex.test(textoIngresado)) {
       textoCifrado = textoIngresado
@@ -37,29 +50,54 @@ function desencriptar() {
         .replaceAll("imes", "i")
         .replaceAll("ober", "o")
         .replaceAll("ufat", "u");
-      document.getElementById("imagen").style.display = "none";
-      document.getElementById("no-encontrado").style.visibility = "hidden";
-      document.getElementById("ingrese-texto").style.visibility = "hidden";
-      document.getElementById("texto-encriptado").innerHTML = textoCifrado;
-      document.getElementById("texto-encriptado").style.visibility = "visible";
-      document.getElementById("boton-copiar").style.visibility = "visible";
+        document.getElementById("imagen-texto").style.display = "none";
+        document.getElementById("textarea-encriptado").textContent = textoCifrado;
+        document.getElementById("textarea-boton").style.display = "flex";
+        document.getElementById("textarea-entrada").value = "";
     } else {
-      alert("Ingrese solo letras minúsculas sin acentuacion");
+      // Notificacion sweetAlert2
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Ingrese solo letras minúsculas sin acentuacion',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   } else {
-    alert("Ingresa una frase");
+    // Notificacion sweetAlert2
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Ingresa una frase',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
-//Funcion para copiar el texto encriptado y poderlo pegar en la entreda de texto
+//Funcion para copiar el texto encriptado y poderlo pegar en la entrada de texto
 function copiarTexto() {
-  let textoEncriptado;
-  var content = document.getElementById("texto-encriptado");
-  if (textoEncriptado == "") {
-    alert("No hay mensaje que copiar");
+  var textoEncriptado = document.getElementById("textarea-encriptado");
+  if (textoEncriptado.value == "") {
+    // Notificacion sweetAlert2
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'No hay mensaje que copiar',
+      showConfirmButton: false,
+      timer: 1500
+    })
   } else {
-    content.select();
+    textoEncriptado.select();
     document.execCommand("copy");
-    alert("Texto Copiado");
+    // Notificacion sweetAlert2
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Texto copiado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
